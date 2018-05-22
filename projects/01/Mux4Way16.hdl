@@ -17,4 +17,15 @@ CHIP Mux4Way16 {
 
     PARTS:
     // Put your code here:
+    Not(in=sel[0], out=sn0);
+    Not(in=sel[1], out=sn1);
+    And(a=sel[0], b=sel[1], out=do);
+    And(a=sel[0], b=sn1, out=co);
+    And(a=sn0, b=sel[1], out=bo);
+    And(a=sn0, b=sn1, out=ao);
+    And(a=ao, b=a[0], out=a0);
+    And(a=bo, b=b[0], out=b0);
+    And(a=co, b=c[0], out=c0);
+    And(a=do, b=d[0], out=d0);
+    // too long...
 }
